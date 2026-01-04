@@ -23,7 +23,7 @@ key = os.getenv("ALIYUN_API_KEY")
 print(f"API Key: {key[:6]}...{key[-4:] if key else 'None'}")
 print("-----------------------------")
 
-app = FastAPI()
+app = FastAPI(root_path="/api")
 
 # Add CORS middleware
 app.add_middleware(

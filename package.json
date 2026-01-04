@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"npm run server\" \"vite\"",
     "server": "nodemon --watch api --exec node --loader ts-node/esm api/index.ts",
-    "build": "tsc && vite build",
+    "build": "cd frontend && npm install && npm run build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

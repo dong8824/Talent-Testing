@@ -1,0 +1,7 @@
+{
+  "user_message": "",
+  "history": [
+    {"role": "user", "content": "Testing"},
+    {"role": "assistant", "content": "OK"}
+  ]
+}

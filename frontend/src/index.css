@@ -1,0 +1,71 @@
+body {
+  background-color: #F9FAFB;
+  color: #18181B;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-spa-bg text-spa-text-primary min-h-screen antialiased selection:bg-zinc-900 selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight;
+  }
+}
+
+@layer components {
+  /* Minimalist Button: Solid or Outline */
+  .btn-primary {
+    @apply px-8 py-4 bg-spa-text-primary text-spa-bg font-medium tracking-wide 
+           transition-all duration-300 hover:bg-spa-text-secondary
+           disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md;
+  }
+
+  .btn-outline {
+    @apply px-8 py-4 border border-spa-text-primary/10 text-spa-text-primary font-medium tracking-wide
+           transition-all duration-300 hover:bg-spa-text-primary hover:text-spa-bg
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Journal Input Field */
+  .input-journal {
+    @apply w-full bg-transparent border-b border-spa-text-primary/10 py-4 text-xl md:text-2xl 
+           text-spa-text-primary placeholder-spa-text-muted focus:outline-none focus:border-spa-accent
+           transition-colors duration-300 resize-none leading-relaxed;
+  }
+
+  /* Glass card - Light Mode Version */
+  .card-minimal {
+    @apply bg-white/80 backdrop-blur-md border border-white/60 p-8 md:p-12 shadow-soft rounded-[2rem];
+  }
+}
+
+.text-gradient {
+  /* Subtle sheen for light mode */
+  @apply text-spa-text-primary;
+}
+
+/* Light Beam Progress Bar Animation - Dark beam on white */
+@keyframes beam-pulse {
+  0%, 100% { opacity: 0.8; box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); }
+  50% { opacity: 1; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); }
+}
+
+.light-beam {
+  animation: beam-pulse 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar - Minimalist */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-200 rounded-full hover:bg-zinc-300 transition-colors;
+}
